@@ -1,17 +1,34 @@
 <template>
   <div id="home">
-    <nav-bar class="home-nav">
-      <div slot="center">购物街</div>
-    </nav-bar>
-
-    <van-swipe :autoplay="3000" indicator-color="white">
-      <van-swipe-item v-for="item in banners" :key="item.id">
-        <a :href="item.link">
-          <img :src="item.image" alt="">
-        </a>
-      </van-swipe-item>
-     
-    </van-swipe>
+    <!-- 导航 -->
+    <nav-bar class="home-nav"><div slot="center">购物街</div></nav-bar>
+    <!-- 轮播图 -->
+    <home-swipe :banners="banners"></home-swipe>
+    <!-- 特性 特征 分类-->
+    <home-recommend-view :recommends="recommends"></home-recommend-view>
+    <feature-view></feature-view>
+    <ul>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+    </ul>
   </div>
 </template>
 
@@ -20,11 +37,18 @@
 
 <script>
 import NavBar from "@/components/common/navbar/NavBar.vue";
+import HomeSwipe from "./choldComps/HomeSwipe"
+import HomeRecommendView from './choldComps/HomeRecommendView'
+import FeatureView from "./choldComps/FeatureView"
+
 import { getHomeMultidata } from "@/network/home";
 export default {
   name: "Home",
   components: {
-    NavBar
+    NavBar,
+    HomeSwipe,
+    HomeRecommendView,
+    FeatureView,
   },
   data() {
     return {
@@ -43,8 +67,16 @@ export default {
 </script>
 
 <style scoped>
+#home{
+  padding-top: 44px;
+}
 .home-nav {
   background-color: rgb(71, 99, 194);
   color: azure;
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
 }
 </style>

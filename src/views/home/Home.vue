@@ -7,6 +7,7 @@
     <!-- 特性 特征 分类-->
     <home-recommend-view :recommends="recommends"></home-recommend-view>
     <feature-view></feature-view>
+    <tab-control></tab-control>
     <ul>
       <li>列表</li>
       <li>列表</li>
@@ -36,10 +37,14 @@
 
 
 <script>
+import HomeSwipe from "./childComps/HomeSwipe"
+import HomeRecommendView from './childComps/HomeRecommendView'
+import FeatureView from "./childComps/FeatureView"
+
+
 import NavBar from "@/components/common/navbar/NavBar.vue";
-import HomeSwipe from "./choldComps/HomeSwipe"
-import HomeRecommendView from './choldComps/HomeRecommendView'
-import FeatureView from "./choldComps/FeatureView"
+import TabControl from "@/components/content/tabControl/TabControl"
+
 
 import { getHomeMultidata } from "@/network/home";
 export default {
@@ -49,6 +54,7 @@ export default {
     HomeSwipe,
     HomeRecommendView,
     FeatureView,
+    TabControl,
   },
   data() {
     return {
